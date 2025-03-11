@@ -8,12 +8,17 @@ import datetime
 from bson import ObjectId
 from functools import wraps  # Required for decorators
 from dotenv import load_dotenv
+from flask import Flask, send_file
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")  # Use a strong secret key
+
+@app.route('/')
+def home():
+    return send_file('login.html')  # Serve the file directly from the same directory
 
 # MongoDB Connection
 MONGO_URI = os.getenv("MONGO_URI")
