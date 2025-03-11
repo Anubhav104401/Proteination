@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")  # Use a strong secret key
 
 @app.route('/')
 def home():
-    return send_file('Login.html')  # Serve the file directly from the same directory
+    return send_file('main.html')  # Serve the file directly from the same directory
 
 # MongoDB Connection
 MONGO_URI = os.getenv("MONGO_URI")
